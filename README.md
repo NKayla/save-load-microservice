@@ -44,6 +44,7 @@ Saving the game state (player progress) - send data to server.
 - Method: POST
 - Endpoint: `/games/{gameId}/players/{playerId}/save?slotId=slot2`
 - URL to call endpoint (local dev): http://localhost:5000
+- Content-Type: application/json
 - Status Codes: 201 Created, 400 Bad Request 
 
 Example body:

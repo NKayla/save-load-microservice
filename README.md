@@ -1,6 +1,7 @@
 # save-load-microservice
 
-This microservice handles the persistent storage and retrieval of a player's game state progress. It provides a REST API over HTTP for storing and retrieving progress data in order to load to game by using optional save slot or autosave. This microservice uses Python 3 and Flask. 
+This microservice handles the persistent storage and retrieval of a player's game state progress. It provides a REST API over HTTP for storing and retrieving progress data in order to load to game by using optional save slots or autosave. 
+- Python 3 and Flask. 
 
 ## Install
 ```
@@ -29,14 +30,21 @@ python test_client.py
 ## Parameters:
 - `gameId`  Unique Id for game.
 - `playerId` Unique Id for player.
-- `slotId` Unique Id for save slot assigned to player. 
+- `slotId` Unique Id for save slot assigned to player. (Query parameter)
+
+## Data Format
+Data is sent and received as JSON. Examples:
+- levelsCompleted [array of integers]
+- coins [int]
+- upgrades [boolean]
 
 
 ## How to REQUEST data 
 Saving the game state (player progress) - send data to server.
 - Method: POST
-- Endpoint: /games/{gameId}/players/{playerId}/save?slotId=slot2
-- Status Codes: 200 OK, 400 Bad Request 
+- Endpoint: `/games/{gameId}/players/{playerId}/save?slotId=slot2`
+- URL to call endpoint (local dev): http://localhost:5000
+- Status Codes: 201 Created, 400 Bad Request 
 
 Example body:
 ```json
@@ -54,7 +62,8 @@ Example body:
 ## How to RECEIVE data 
 Retrieve the player's progress from server.
 - Method: GET
-- Endpoint: /games/{gameId}/players/{playerId}/save?slotId=slot2
+- Endpoint: `/games/{gameId}/players/{playerId}/save?slotId=slot2`
+- URL to call endpoint (local dev): http://localhost:5000
 - Status Codes: 200 Ok, 404 Not Found
 
 Response body example (game client receives):

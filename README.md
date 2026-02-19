@@ -16,7 +16,7 @@ pip install flask
 
 ## Running the Microservice 
 ```
-python server.py
+python service.py
 ```
 
 ## Testing

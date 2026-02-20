@@ -59,13 +59,40 @@ Example body:
 }
 ```
 
+## Example request 
+```
+import requests
+
+# save progress 
+response = requests.post(
+    "http://127.0.0.1:5000/games/game1/player/player81/save",
+    params={"slotId: "default"},
+    json={"levelCompleted": 5, "coins": 350}
+}
+
+print("Status", response.status_code)
+print("Body":, response.json())
+```
 
 ## How to RECEIVE data 
-Retrieve the player's progress from server.
+Retrieve the player's progress from service.
 - Method: GET
 - Endpoint: `/games/{gameId}/players/{playerId}/save?slotId=slot2`
 - URL to call endpoint (local dev): http://localhost:5000
 - Status Codes: 200 Ok, 404 Not Found
+
+Example
+```
+import requests
+
+response = requests.get(
+  "http://127.0.0.1:5000/games/game1/players/player81/save",
+  params={"slotId: "default"}
+}
+
+print("Status", response.status_code)
+print("Body":, response.json())
+```
 
 Response body example (game client receives):
 ```json
@@ -78,6 +105,7 @@ Response body example (game client receives):
     "unlocked": true
 }
 ```
+
 
 ## Autosave
 Autosave used in game to save at checkpoints. 

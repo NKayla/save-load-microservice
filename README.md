@@ -65,7 +65,7 @@ import requests
 
 # save progress 
 response = requests.post(
-    "http://127.0.0.1:5000/games/game1/player/player81/save",
+    "http://127.0.0.1:5000/games/game1/players/player81/save",
     params={"slotId: "default"},
     json={"levelCompleted": 5, "coins": 350}
 }

@@ -20,7 +20,7 @@ python service.py
 ```
 
 ## Testing
-1. Run server.py
+1. Run service.py
 2. Test with browser in separate terminal.
 ```
 python test_client.py
@@ -40,12 +40,12 @@ Data is sent and received as JSON. Examples:
 
 
 ## How to REQUEST data 
-Saving the game state (player progress) - send data to server.
+Saving the game state (player progress) - send data to service.
 - Method: POST
 - Endpoint: `/games/{gameId}/players/{playerId}/save?slotId=slot2`
 - URL to call endpoint (local dev): http://localhost:5000
 - Content-Type: application/json
-- Status Codes: 201 Created, 400 Bad Request 
+- Status Codes: 200 Created, 400 Bad Request 
 
 Example JSON Body:
 ```json

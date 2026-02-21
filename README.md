@@ -47,7 +47,7 @@ Saving the game state (player progress) - send data to server.
 - Content-Type: application/json
 - Status Codes: 201 Created, 400 Bad Request 
 
-Example body:
+Example JSON Body:
 ```json
 {
   "levelsCompleted": [1, 2, 3],
@@ -110,8 +110,8 @@ Response body example (game client receives):
 ## Autosave
 Autosave used in game to save at checkpoints. 
 Method: POST
-- Autosave is controleld by the game client.
-- Normal http request to save. 
+- Autosave is controlled by the game client.
+- Normal http request.
 
 
 

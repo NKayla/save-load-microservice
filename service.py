@@ -5,7 +5,7 @@ app = Flask(__name__)
 # store saves
 saves = {}
 
-ALLOWED_GAMES = {"FireSTORM", "game2"}
+ALLOWED_GAMES = {"FireSTORM", "game1"}
 
 # ---------- Save Progress------------
 @app.route("/games/<gameId>/players/<playerId>/save", methods=["POST"])
@@ -20,7 +20,7 @@ def save_game(gameId, playerId):
     if not player_progress:
         return jsonify({"error": "Save data not found"}), 400
 
-    # store in dictionary
+    # store Ids in dictionary
     saves[(gameId, playerId, slotId)] = player_progress
 
     return jsonify({"message": f"Save stored in slot '{slotId}'"}), 200

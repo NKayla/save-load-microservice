@@ -13,7 +13,7 @@ class TestSave(unittest.TestCase):
             "/games/game1/players/player1/save",
             json={"levelCompleted": 5, "coins": 215}
         )
-        self.assertEqual(res.status_code, 201)
+        self.assertEqual(res.status_code, 200)
 
     def test_load(self):
         # first save

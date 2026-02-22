@@ -6,19 +6,6 @@ import requests
 BASE_URL = "http://127.0.0.1:5000"
 
 
-def print_result(name: str, response: requests.Response) -> None:
-    print(f"TEST: {name}")
-    print(f"Status: {response.status_code}")
-    try:
-        data = response.json()
-        print("Response JSON:")
-        print(json.dumps(data))
-    except ValueError:
-        print("Not JSON response body:")
-        print(response.text)
-    print()
-
-
 def test_save():
     """Valid save request with the progress data."""
     data = {
@@ -30,7 +17,8 @@ def test_save():
         params={"slotId": "slot1"},
         json=data,
     )
-    print_result("Save progress data", resp)
+    print("Save progress data", resp.status_code)
+    print("Body:", resp.json())
 
 
 def test_load():
@@ -39,7 +27,7 @@ def test_load():
         f"{BASE_URL}/games/FireSTORM/players/player1/save",
         params={"slotId": "slot1"},
     )
-    print_result("Load progress data", resp)
+    print("Load progress data", resp)
     data = resp.json()
     print("coins:", data["coins"])
     print("levelCompleted:", data["levelCompleted"])
@@ -55,7 +43,8 @@ def test_unknown_gameId():
         f"{BASE_URL}/games/unknowngame/players/player1/save",
         json=data,
     )
-    print_result("gameId unknown", resp)
+    print("gameId unknown", resp.status_code)
+    print("Unknown:", resp.json())
 
 
 if __name__ == "__main__":

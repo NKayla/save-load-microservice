@@ -11,7 +11,7 @@ ALLOWED_GAMES = {"FireSTORM", "game1"}
 @app.route("/games/<gameId>/players/<playerId>/save", methods=["POST"])
 def save_game(gameId, playerId):
     if gameId not in ALLOWED_GAMES:
-        return jsonify({"error": f"Unknown'{gameId}'"}), 400
+        return jsonify({"error": f"Unknown '{gameId}'"}), 400
 
     slotId = request.args.get("slotId", "default")
 
@@ -30,7 +30,7 @@ def save_game(gameId, playerId):
 @app.route("/games/<gameId>/players/<playerId>/save", methods=["GET"])
 def load_game(gameId, playerId):
     if gameId not in ALLOWED_GAMES:
-        return jsonify({"error": f"Unknown'{gameId}'"}), 400
+        return jsonify({"error": f"Unknown '{gameId}'"}), 400
     # default if no slot provided
     slotId = request.args.get("slotId", "default")
 

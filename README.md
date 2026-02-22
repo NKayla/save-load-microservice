@@ -43,7 +43,7 @@ Data is sent and received as JSON. Examples:
 Saving the game state (player progress) - send data to service.
 - Method: POST
 - Endpoint: `/games/{gameId}/players/{playerId}/save?slotId=slot2`
-- URL to call endpoint (local dev): http://localhost:5000
+- URL to call endpoint (local dev): http://localhost:8000
 - Content-Type: application/json
 - Status Codes: 200 Created, 400 Bad Request 
 
@@ -65,7 +65,7 @@ import requests
 
 # save progress 
 response = requests.post(
-    "http://127.0.0.1:5000/games/game1/players/player81/save",
+    "http://localhost:8000/games/game1/players/player81/save",
     params={"slotId: "default"},
     json={"levelCompleted": 5, "coins": 350}
 }
@@ -78,7 +78,7 @@ print("Body":, response.json())
 Retrieve the player's progress from service.
 - Method: GET
 - Endpoint: `/games/{gameId}/players/{playerId}/save?slotId=slot2`
-- URL to call endpoint (local dev): http://localhost:5000
+- URL to call endpoint (local dev): http://localhost:8000
 - Status Codes: 200 Ok, 404 Not Found
 
 Example
@@ -86,7 +86,7 @@ Example
 import requests
 
 response = requests.get(
-  "http://127.0.0.1:5000/games/game1/players/player81/save",
+  "http://localhost:8000/games/game1/players/player81/save",
   params={"slotId: "default"}
 }
 

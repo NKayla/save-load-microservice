@@ -1,11 +1,13 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app, origins=["http://127.0.0.1:5501"])
 
 # store saves
 saves = {}
 
-ALLOWED_GAMES = {"FireSTORM", "game1"}
+ALLOWED_GAMES = {"FireSTORM", "CuteCrops"}
 
 # ---------- Save Progress------------
 @app.route("/games/<gameId>/players/<playerId>/save", methods=["POST"])
@@ -42,4 +44,4 @@ def load_game(gameId, playerId):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=8000)

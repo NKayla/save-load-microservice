@@ -1,9 +1,8 @@
 """Use external requests library to make an HTTP POST request for testing."""
 
-import json
 import requests
 
-BASE_URL = "http://127.0.0.1:5000"
+BASE_URL = "http://127.0.0.1:8000"
 
 
 def test_save():

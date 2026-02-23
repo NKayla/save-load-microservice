@@ -123,3 +123,6 @@ Method: POST
 
 
 ## UML Sequence Diagram: 
+
+<img width="807" height="502" alt="image" src="https://github.com/user-attachments/assets/bd9cd034-ca4c-4133-a1ce-3f968c508884" />
+

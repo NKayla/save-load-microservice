@@ -13,6 +13,9 @@ Install dependencies
 ```
 pip install flask
 ```
+```
+pip install flask-cors
+```
 
 ## Running the Microservice 
 ```

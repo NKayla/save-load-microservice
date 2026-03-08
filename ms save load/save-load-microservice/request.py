@@ -64,7 +64,7 @@ def load_game(gameId, playerId):
 def list_slots(gameId, playerId):
     player_saves = {slot: val for (g,p,slot), val in saves.items() if g==gameId and p==playerId}
     if not player_saves:
-        return jsonify({"message": "No saves found"}), 204
+        return jsonify({"error": "No saves found"}), 404
     return jsonify(player_saves), 200
 
 
